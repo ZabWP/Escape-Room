@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classroom</title>
+    <link rel="stylesheet" href="classroom.css" />
+  </head>
+  <body>
+    <div class="classroomContainer">
+      <form
+        method="POST"
+        action="collect_item.php"
+        style="position: absolute; top: 150px; left: 100px"
+        class="backpackContainer"
+      >
+        <input type="hidden" name="item" value="item1" />
+        <input
+          type="image"
+          src="assets/backpack.png"
+          class="backpack"
+          alt="item1"
+        />
+      </form>
+
+      <form
+        method="POST"
+        action="collect_item.php"
+        style="position: absolute; top: 300px; left: 200px"
+        class="laptopContainer"
+      >
+        <input type="hidden" name="item" value="item2" />
+        <input
+          type="image"
+          src="assets/laptop.png"
+          class="laptop"
+          alt="item2"
+        />
+      </form>
+
+      <form
+        method="POST"
+        action="collect_item.php"
+        style="position: absolute; top: 400px; left: 350px"
+        class="phoneContainer"
+      >
+        <input type="hidden" name="item" value="item3" />
+        <input type="image" src="assets/phone.png" class="phone" alt="item3" />
+      </form>
+    </div>
+  </body>
+</html>

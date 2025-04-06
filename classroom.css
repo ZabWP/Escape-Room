@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.classroomContainer {
+  background-image: url("assets/classroom.JPG");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  width: auto;
+  height: 100vh;
+}
+
+.laptop {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  left: 40%;
+  pointer-events: visible;
+  cursor: default;
+}
+
+.laptopContainer {
+  position: absolute;
+  height: auto;
+  bottom: 0%;
+  left: 5%;
+  width: 25%;
+  pointer-events: none;
+}
+
+.backpack {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  right: -280%;
+  pointer-events: visible;
+  cursor: default;
+}
+
+.backpackContainer {
+  position: absolute;
+  height: auto;
+  bottom: 0%;
+  width: 20%;
+  pointer-events: none;
+}
+
+.phone {
+  width: 35%;
+  position: absolute;
+  bottom: 0%;
+  right: -60%;
+  pointer-events: visible;
+  cursor: default;
+}
+
+.phoneContainer {
+  position: absolute;
+  height: auto;
+  bottom: 0%;
+  left: 10%;
+  width: 20%;
+  pointer-events: none;
+}
