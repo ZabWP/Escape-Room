@@ -15,10 +15,8 @@ if(!isset($_COOKIE['start_time'])) {
     header("Location: gameInit.php");
     exit();
 }
+setcookie('game_message', '', time() + 3600, '/');
 
-$puzzle1_completed  = isset($_COOKIE['puzzle1_complete']) && $_COOKIE['puzzle1_complete'] === 'true';
-$puzzle2_completed  = isset($_COOKIE['puzzle2_complete']) && $_COOKIE['puzzle2_complete'] === 'true';
-$puzzle3_completed  = isset($_COOKIE['puzzle3_complete']) && $_COOKIE['puzzle3_complete'] === 'true';
 
 $inventory = isset($_COOKIE['inventory']) ? explode(',', $_COOKIE['inventory']) : [];
 
@@ -26,7 +24,30 @@ $items = ['backpack', 'laptop', 'phone'];
 
 
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dismissGameMessage'])) {
+    setcookie('game_message', '', time() + 3600, '/');
+    setcookie('game_check', 'false', time() + 3600, '/');
+    header("Location: " . $_SERVER['REQUEST_URI']);
+    exit;
+}
 
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkCompletion'])) {
+    
+    setcookie('game_check', 'true', time() + 3600, '/');
+
+    if ($_COOKIE['puzzle3_complete'] === 'false') {
+        setcookie('game_message', 'You need to finish the quiz first!', time() + 3600, '/');
+        header("Location: " . $_SERVER['REQUEST_URI']);
+    } elseif ($_COOKIE['puzzle1_complete'] === 'false') {
+        setcookie('game_message', 'You can\'t leave without your stuff!', time() + 3600, '/');
+        header("Location: " . $_SERVER['REQUEST_URI']);
+    } elseif ($_COOKIE['puzzle2_complete'] === 'false') {
+        setcookie('game_message', 'It\'s not time to leave yet', time() + 3600, '/');
+        header("Location: " . $_SERVER['REQUEST_URI']);
+    } 
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,26 +59,36 @@ $items = ['backpack', 'laptop', 'phone'];
         <link rel="stylesheet" href="classroom.css">
     </head>
     <body>
-        <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['dismiss_puzzle1_message'])) {
-            setcookie('puzzle1_message', 'false', time() + 3600, '/');
-            header("Location: " . $_SERVER['REQUEST_URI']);
-            exit;
-        }
-        ?>
-
-        <?php if (
-            isset($_COOKIE['puzzle1_complete']) && $_COOKIE['puzzle1_complete'] === 'false' &&
-            isset($_COOKIE['puzzle1_message']) && $_COOKIE['puzzle1_message'] === 'true'
-        ): ?>
-            <div class="puzzle1-message">
-                <p>You can't leave without your stuff!</p>
+       
+  
+        <?php if ($_COOKIE['game_check'] === 'true' && isset($_COOKIE['game_message'])): ?>
+            <div class="gameMessage"
+                style ="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 20%;
+                    height: 200px;
+                    background-color: rgba(255, 255, 255, 0.8);
+                    border-radius: 10px;
+                    padding: 20px;
+                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+                    z-index: 100;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 20px;
+                "
+            >
+                <p><?= htmlspecialchars($_COOKIE['game_message']) ?></p>
                 <form method="POST">
-                    <button type="submit" name="dismiss_puzzle1_message">OK</button>
+                    <button type="submit" name="dismissGameMessage">OK</button>
                 </form>
             </div>
         <?php endif; ?>
-
+    
 
         <div class="classroomContainer">
 
@@ -82,13 +113,20 @@ $items = ['backpack', 'laptop', 'phone'];
                 </form>
             <?php endif; ?>
 
-            <div class="rightExit">
+            <div class="puzzle3Screen">
                 
             </div>
 
-            <div class="leftExit">
-                
-                </div>
+
+            <form class="rightExit" method="POST" >
+                <button type="submit" name="checkCompletion" class="ExitButton"></button>
+            </form>
+
+            <form class="leftExit" method="POST" >
+                <button type="submit" name="checkCompletion" class="ExitButton"></button>
+            </form>
+            
+           
         </div>
     </body>
 </html>

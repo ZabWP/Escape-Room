@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['item'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['item']) && $_COOKIE['game_check'] === 'false') {
     $item = $_POST['item'];
     
     $inventory = isset($_COOKIE['inventory']) ? explode(',', $_COOKIE['inventory']) : [];
