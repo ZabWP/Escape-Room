@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: rgb(255, 236, 201);
 }
 .classroomContainer {
   background-image: url("assets/classroom.JPG");
@@ -10,6 +11,8 @@ body {
   position: relative;
   width: auto;
   height: 100vh;
+
+  display: flex;
 }
 
 .laptop {
@@ -30,22 +33,19 @@ body {
   pointer-events: none;
 }
 
-.backpack {
-  width: 100%;
+/* .backpack {
   position: absolute;
-  bottom: 0%;
-  right: -280%;
   pointer-events: visible;
   cursor: default;
+  width: 40%;
 }
 
 .backpackContainer {
   position: absolute;
-  height: auto;
-  bottom: 0%;
-  width: 20%;
   pointer-events: none;
-}
+  background-color: antiquewhite;
+  z-index: 1;
+} */
 
 .phone {
   width: 35%;
