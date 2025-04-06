@@ -5,31 +5,32 @@ body {
 }
 .classroomContainer {
   background-image: url("assets/classroom.JPG");
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  position: relative;
-  width: auto;
-  height: 100vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1250px;
+  height: 974px;
 
-  display: flex;
+  background-color: rosybrown;
 }
 
 .laptop {
   width: 100%;
   position: absolute;
-  bottom: 0%;
-  left: 40%;
+  bottom: -245%;
+
   pointer-events: visible;
   cursor: default;
 }
 
 .laptopContainer {
   position: absolute;
-  height: auto;
-  bottom: 0%;
-  left: 5%;
-  width: 25%;
+  width: 30%;
+  height: 20%;
   pointer-events: none;
 }
 
@@ -51,7 +52,7 @@ body {
   width: 35%;
   position: absolute;
   bottom: 0%;
-  right: -60%;
+  right: -30%;
   pointer-events: visible;
   cursor: default;
 }
@@ -60,7 +61,26 @@ body {
   position: absolute;
   height: auto;
   bottom: 0%;
-  left: 10%;
   width: 20%;
   pointer-events: none;
+}
+
+.rightExit {
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.291);
+  width: 80px;
+  height: 120px;
+  right: 158px;
+  top: 43%;
+  cursor: pointer;
+}
+
+.leftExit {
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.291);
+  width: 60px;
+  height: 110px;
+  left: 158px;
+  top: 43%;
+  cursor: pointer;
 }
