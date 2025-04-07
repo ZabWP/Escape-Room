@@ -149,7 +149,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['setName'])) {
     </head>
     <body>
        
-  
+    <a href="index.html" 
+    style="
+    text-decoration: none;
+    color: white;
+    padding: 15px 35px;
+    font-size: 1.2em;
+    background-color: #ff3c38;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+    "
+    
+    >Home</a>
+
         <?php if ($_COOKIE['game_check'] === 'true' && isset($_COOKIE['game_message'])): ?>
             <div class="gameMessage"
                 style ="
@@ -318,24 +339,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['setName'])) {
                         top: 50%;
                         left: 50%;
                         transform: translate(-50%, -50%);
-                        background-color: white;
                         border: none;
                         font-size: 20px;
                         width: 400px;
-                        padding: 10px;
-                        border-radius: 5px;
                         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
                         z-index: 100;
                         height: 120px;
+
+                        background-color: rgba(0, 0, 0, 0.96);
+                        padding: 60px;
+                        border-radius: 20px;
                         text-align: center;
+                        color: white;
                         "
                     > 
 
                         <h1>Please enter your name</h1>
                         <input type="text" name="name" placeholder="Enter your name" style="
-                            
+                            height: 40px;
                         ">
-                        <button type="submit" name="setName" >
+                        <button type="submit" name="setName" style="
+                         padding: 15px 20px;
+                        font-size: 1em;
+                        background-color: #ff3c38;
+                        color: white;
+                        border: none;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        transition: 0.3s ease;
+                        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  ">
                         Enter
                         </button>
                     </div>
