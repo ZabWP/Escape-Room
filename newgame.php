@@ -1,6 +1,5 @@
 <?php
-// Sets up the initial cookies on new game start. 
-
+    setcookie('name', '', time() + (86400 * 30), '/');
     setcookie('game_in_progress', 'true', time() + (86400 * 30), '/');
     setcookie('start_time', time(), time() + (86400 * 30), '/');
 

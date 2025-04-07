@@ -128,6 +128,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkCompletion'])) {
     }
 
 }
+
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['setName'])) {
+    $name = trim($_POST['name']);
+    setcookie('name', $name, time() + (86400 * 30), '/');
+    header("Location: " . $_SERVER['REQUEST_URI']);
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -291,6 +300,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkCompletion'])) {
             <div class="progressbarL">
                 <div class="progress" style="width: <?php echo $count * 2; ?>%"></div>
             </div>
+
+            <?php if (!isset($_COOKIE['name']) || $_COOKIE['name'] === ''): ?>
+                <form method="POST" style ="
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 100;
+                    width: 100vh;
+                    height: 100vh;
+                    background-color: transparent;
+                ">  
+                    <div 
+                    style ="
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background-color: white;
+                        border: none;
+                        font-size: 20px;
+                        width: 400px;
+                        padding: 10px;
+                        border-radius: 5px;
+                        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+                        z-index: 100;
+                        height: 120px;
+                        text-align: center;
+                        "
+                    > 
+
+                        <h1>Please enter your name</h1>
+                        <input type="text" name="name" placeholder="Enter your name" style="
+                            
+                        ">
+                        <button type="submit" name="setName" >
+                        Enter
+                        </button>
+                    </div>
+                </form>
+            <?php endif; ?>
         </div>
     </body>
 </html>
