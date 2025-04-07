@@ -1,0 +1,144 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.background {
+  background-image: url("assets/classroom.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  height: 974px;
+  width: 100vw;
+  filter: blur(20px);
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.classroomContainer {
+  background-image: url("assets/classroom.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1250px;
+  height: 974px;
+}
+
+.laptop {
+  width: 100%;
+  position: absolute;
+  bottom: -245%;
+
+  pointer-events: visible;
+  cursor: default;
+}
+
+.laptopContainer {
+  position: absolute;
+  width: 30%;
+  height: 20%;
+  pointer-events: none;
+}
+
+/* .backpack {
+  position: absolute;
+  pointer-events: visible;
+  cursor: default;
+  width: 40%;
+}
+
+.backpackContainer {
+  position: absolute;
+  pointer-events: none;
+  background-color: antiquewhite;
+  z-index: 1;
+} */
+
+.phone {
+  width: 35%;
+  position: absolute;
+  bottom: 0%;
+  right: -30%;
+  pointer-events: visible;
+  cursor: default;
+}
+
+.phoneContainer {
+  position: absolute;
+  height: auto;
+  bottom: 0%;
+  width: 20%;
+  pointer-events: none;
+}
+
+.rightExit {
+  position: absolute;
+
+  width: 80px;
+  height: 120px;
+  right: 158px;
+  top: 43%;
+  cursor: pointer;
+}
+
+.leftExit {
+  position: absolute;
+
+  width: 60px;
+  height: 110px;
+  left: 158px;
+  top: 43%;
+  cursor: pointer;
+}
+
+.ExitButton {
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.puzzle3Screen {
+  background-color: rgba(254, 254, 254, 0.592);
+  position: absolute;
+  width: 180px;
+  height: 110px;
+  top: 34%;
+  left: 41%;
+  cursor: pointer;
+}
+
+.progressbarR {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.726);
+  top: 42%;
+  right: 158px;
+  width: 80px;
+  height: 2px;
+}
+
+.progressbarL {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.726);
+  top: 42%;
+  left: 150px;
+  width: 60px;
+  height: 2px;
+}
+
+.progress {
+  position: absolute;
+  background-color: rgb(14, 238, 70);
+  top: 5%;
+  left: 0;
+  height: 90%;
+  max-width: 100%;
+}
