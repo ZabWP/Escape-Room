@@ -1,18 +1,18 @@
 <?php
 
 if(!isset($_COOKIE['game_in_progress'])) {
-    header("Location: gameInit.php");
+    header("Location: newgame.php");
     exit();
 }
 if (isset($_COOKIE['game_in_progress']) && $_COOKIE['game_in_progress'] === 'false') {
-    header("Location: gameInit.php");
+    header("Location: newgame.php");
     exit();
 }
 if (isset($_COOKIE['game_in_progress']) && $_COOKIE['game_in_progress'] === 'true') {
     setcookie('total_visits', $_COOKIE['total_visits'] + 1, time() + (86400 * 30), '/');
 }
 if(!isset($_COOKIE['start_time'])) {
-    header("Location: gameInit.php");
+    header("Location: newgame.php");
     exit();
 }
 setcookie('game_message', '', time() + 3600, '/');
@@ -113,9 +113,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkCompletion'])) {
                 </form>
             <?php endif; ?>
 
-            <div class="puzzle3Screen">
-                
-            </div>
+            <form class="puzzle3Screen" method="POST">
+                <button type="submit" name="openQuiz" class="screenButton">
+                    <p>
+                    Take Quiz
+                    </p>
+                </button>
+            </form>
 
 
             <form class="rightExit" method="POST" >
