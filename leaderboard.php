@@ -54,8 +54,9 @@ usort($leaderboard, function ($a, $b) {
                 ?>
             </tbody>
         </table>
-
+        
         <a href="newgame.php" class="button"><button>Start New Game</button></a>
+        <a href="index.html" class="button"><button>Back to Home</button></a>
     </div>
 </body>
 </html>
